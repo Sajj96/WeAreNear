@@ -1,0 +1,45 @@
+{
+  "name": "wearenear",
+  "version": "1.0.0",
+  "description": "Online Medical Appointment System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sajj96/WeAreNear.git"
+  },
+  "author": "Sajj Abuu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sajj96/WeAreNear/issues"
+  },
+  "homepage": "https://github.com/Sajj96/WeAreNear#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.0",
+    "chalk": "^4.1.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jquery": "^3.5.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2000",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  }
+}
