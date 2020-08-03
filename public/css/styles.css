@@ -418,6 +418,7 @@ small,
     position: relative;
     max-height: 100px;
     z-index: 1030;
+    
 }
 .main-header .navbar {
     -webkit-transition: margin-left 0.3s ease-in-out;
@@ -1250,6 +1251,10 @@ a.sidebar-toggle .pe-7s-angle-left-circle {
     color: gray;
     opacity: 1;
     font-weight: 500;
+}
+
+.form-control .search-select{
+    display: block;
 }
 
 .form-group-inline{

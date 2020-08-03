@@ -16,6 +16,18 @@ function routes(con) {
     );
   });
 
+  hospitalRouter.route("/search/:keyword").get((req, res) => {
+    const {keyword} = req.params;
+    con.query(`select * from hospitals where hospital_name like '%${keyword}%'`, (err, hospitals) => {
+        if (err) throw err;
+        res.render("hospitalListView", {
+          title: "WeAreNear",
+          hospitals
+        });
+      }
+    );
+  });
+
   return hospitalRouter;
 }
 
