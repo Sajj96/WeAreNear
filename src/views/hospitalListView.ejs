@@ -1,58 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
-    <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/select2.css">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body class="hold-transition sidebar-mini">
-    <header class="main-header">
-        <nav class="navbar">
-            <a class="navbar-brand d-flex" href="/">
-            <img src="/images/logo.jpg" width="50" height="50" class="d-inline-block align-top rounded-circle" alt="">
-            <span class="brand-text">WeAreNear</span>
-            </a>
-        </nav>
-    </header>
+<%- include('./layouts/header') %>
     <div class="container content-wrapper">
         <section class="content-header">
             <div class="input-group mb-3">
-                <input type="text" class="form-control input-box" id="search-box" placeholder="Search hospital" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control input-box" id="mySearchText" placeholder="Search hospital" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 <div class="input-group-append">
-                  <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-search" aria-hidden="true"></i></span>
+                  <!-- <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa fa-search" aria-hidden="true"></i></span> -->
+                  <button class="btn btn-info btn-sm " id="mySearchButton">Search</button>
                 </div>
             </div>
         </section>
         <section class="content">
-            <div class="row">
-                <%for(var i=0; i< hospitals.length; i++){ %>
-                    <div class="card-group vgr-cards">
-                        <div class="card">
-                        <div class="card-img-body">
-                        <img class="card-img" src="/images/logo.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title"><%=hospitals[i].hospital_name%></h4>
-                            <h6 class="card-subtitle mb-2 text-muted"><%=hospitals[i].phone%></h6>
-                            <p class="card-text"><%=hospitals[i].address%></p>
-                            <a href="#" class="card-link"><%=hospitals[i].email%></a>
-                            <a href="#" class="card-link"><%=hospitals[i].website%></a>
-                            <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                        </div>
-                    </div>
-                <%}%>
+            <div class="table-responsive">
+                <table id="hospitalTable" width="100%" class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(var i=0; i< hospitals.length; i++){ %>
+                        <tr>
+                            <td>
+                                <div class="card">
+                                <div class="card-img-body">
+                                <img class="card-img" src="/images/logo.png" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"><%=hospitals[i].hospital_name%></h4>
+                                    <h6 class="card-subtitle mb-2 text-muted"><%=hospitals[i].phone%></h6>
+                                    <p class="card-text"><%=hospitals[i].address%></p>
+                                    <a href="#" class="card-link"><%=hospitals[i].email%></a>
+                                    <a href="#" class="card-link"><%=hospitals[i].website%></a>
+                                    <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fa fa-angle-double-right"></i></a>
+                                </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
             </div>
         </section>
     </div>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/select2.js"></script>
-    <script src="/js/main.js"></script>
-</body>
-</html>
+<%- include('./layouts/footer') %>

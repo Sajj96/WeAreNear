@@ -33,6 +33,7 @@ app.use(
   express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css"))
 );
 app.use("/css", express.static(path.join(__dirname, "/public/plugin/select2")));
+app.use("/css", express.static(path.join(__dirname, "/public/plugin/DataTables")));
 app.use(
   "/js",
   express.static(path.join(__dirname, "/node_modules/jquery/dist"))
@@ -42,6 +43,7 @@ app.use(
   express.static(path.join(__dirname, "/node_modules/bootstrap/dist/js"))
 );
 app.use("/js", express.static(path.join(__dirname, "/public/plugin/select2")));
+app.use("/js", express.static(path.join(__dirname, "/public/plugin/DataTables")));
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 

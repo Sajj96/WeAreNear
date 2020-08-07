@@ -28,13 +28,12 @@
     });
   });
 
-  $("#search-box").on("keyup", function () {
-    var keyword = $(this).val();
-    $.ajax({
-      url: "/hospitals/search",
-      method: "GET",
-      data: { keyword: keyword },
-      success: function () {},
-    });
+  var table =  $('#hospitalTable').DataTable({
+    "pageLength": 5,
+    "dom": '<"top">rt<"bottom"ip><"clear">'
   });
+
+  $('#mySearchButton').on( 'keyup click', function () {
+    table.search($('#mySearchText').val()).draw();
+  } );
 })(jQuery);
