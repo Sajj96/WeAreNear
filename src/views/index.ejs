@@ -26,10 +26,10 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="/hospitals/list" name="welcomeform" method="post"  id="loginForm" >
+                <form action="/appointment/create" name="welcomeform" method="post"  id="loginForm" >
                     <div class="form-group">
                         <label class="control-label" for="regions">Region</label>
-                        <select name="regions" class="custom-select search-select" id="regions">
+                        <select name="regions" class="form-control search-select pmd-select2" id="regions">
                             <option value="">Please select</option>
                             <%for(var i=0;i< regions.length;i++){%>
                                 <option value="<%=regions[i].Region%>"><%=regions[i].Region%></option>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="districts">District</label>
-                        <select name="districts" class="custom-select search-select" id="districts">
+                        <select name="districts" class="form-control search-select" id="districts">
                             <option value="">Please select</option>
                             <%for(var i=0;i< districts.length;i++){%>
                                 <option value="<%=districts[i].Districts%>"><%=districts[i].Districts%></option>

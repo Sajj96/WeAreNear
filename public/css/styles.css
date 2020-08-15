@@ -579,7 +579,7 @@ a.sidebar-toggle .pe-7s-angle-left-circle {
 }
 .content-header .header-icon {
     font-size: 48px;
-    color: #50ab20;
+    color: rgb(58, 44, 44);
     width: 68px;
     float: left;
     margin-top: -4px;
@@ -635,28 +635,28 @@ a.sidebar-toggle .pe-7s-angle-left-circle {
 .navbar-nav > li > a {
     padding: 4px 9px;
     position: relative;
-    color: #50ab20;
+    color: #ffffff;
     word-spacing: 2px;
 }
 .navbar-nav > li > a:hover {
     background-color: none;
     background: none;
-    color: #50ab20;
+    color: #ffffff;
 }
 .navbar-nav > li > a:focus {
     background-color: #222;
     background: #222;
-    color: #50ab20;
+    color: #ffffff;
 }
 .navbar-nav > li > a:visited {
     background-color: #222;
     background: #222;
-    color: #50ab20;
+    color: #ffffff;
 }
 .navbar-nav > li > a:active {
     background-color: #222;
     background: #222;
-    color: #50ab20;
+    color: #ffffff;
 }
 .navbar-nav > li > a > i {
     padding: 10px 3px;
@@ -677,7 +677,7 @@ a.sidebar-toggle .pe-7s-angle-left-circle {
     padding: 10px 3px;
     width: 36px;
     text-align: center;
-    color: #50ab20;
+    color: #ffffff;
     height: 52px;
     font-size: 28px;
     font-weight: 500;
@@ -1813,6 +1813,10 @@ i.fa-dot-circle-o {
 
 .panel-body{
     padding: 15px;
+}
+
+.panel .panel-body.appointment-body{
+    background: #f9f9f9 !important;
 }
 
 .panel-heading {
@@ -3936,6 +3940,10 @@ label .control-label {
 }
 .icon_list li:hover i {
     color: #fff;
+}
+
+#insurance-provider {
+    display: none;
 }
 .icon_name {
     display: block;

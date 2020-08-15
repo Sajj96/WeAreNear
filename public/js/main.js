@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 (function ($) {
+
   var runSelect2 = function () {
     $(".search-select").select2({
       placeholder: "Select an Item",
@@ -33,7 +34,8 @@
     "dom": '<"top">rt<"bottom"ip><"clear">'
   });
 
-  $('#mySearchButton').on( 'keyup click', function () {
+  $('#mySearchButton').on('keyup click', function () {
     table.search($('#mySearchText').val()).draw();
   } );
+
 })(jQuery);

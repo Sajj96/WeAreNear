@@ -33,7 +33,29 @@ app.use(
   express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css"))
 );
 app.use("/css", express.static(path.join(__dirname, "/public/plugin/select2")));
-app.use("/css", express.static(path.join(__dirname, "/public/plugin/DataTables")));
+app.use(
+  "/css",
+  express.static(path.join(__dirname, "/public/plugin/DataTables"))
+);
+app.use("/css", express.static(path.join(__dirname, "/public/plugin")));
+app.use(
+  "/css",
+  express.static(path.join(__dirname, "/node_modules/propellerkit/dist/css"))
+);
+app.use(
+  "/css",
+  express.static(
+    path.join(__dirname, "/node_modules/propellerkit-datetimepicker/css")
+  )
+);
+app.use(
+  "/css",
+  express.static(path.join(__dirname, "/public/plugin/DateTimePicker"))
+);
+app.use(
+  "/css",
+  express.static(path.join(__dirname, "/public/plugin/NotificationStyles/css"))
+);
 app.use(
   "/js",
   express.static(path.join(__dirname, "/node_modules/jquery/dist"))
@@ -42,16 +64,53 @@ app.use(
   "/js",
   express.static(path.join(__dirname, "/node_modules/bootstrap/dist/js"))
 );
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/node_modules/bootstrap/js/dist"))
+);
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/node_modules/moment/min"))
+);
 app.use("/js", express.static(path.join(__dirname, "/public/plugin/select2")));
-app.use("/js", express.static(path.join(__dirname, "/public/plugin/DataTables")));
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/public/plugin/DataTables"))
+);
+app.use("/js", express.static(path.join(__dirname, "/public/plugin")));
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/node_modules/propellerkit/dist/js"))
+);
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/public/plugin/DateTimePicker"))
+);
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/public/plugin/jquery-ui-1.12.1"))
+);
+app.use(
+  "/js",
+  express.static(path.join(__dirname, "/public/plugin/NotificationStyles/js"))
+);
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
-const districtRouter = require('./src/routes/districtRoutes')(con);
-const hospitalRouter = require('./src/routes/hospitalRoutes')(con);
+const districtRouter = require("./src/routes/districtRoutes")(con);
+const appointmentRouter = require("./src/routes/appointmentRoutes")(con);
 
-app.use('/district', districtRouter);
-app.use('/hospitals', hospitalRouter);
+app.use("/district", districtRouter);
+app.use("/appointment", appointmentRouter);
+app.get("/hospitals", (req, res) => {
+  con.query("select * from hospitals order by hospital_name ASC", (err, hospitals) => {
+    if (err) throw err;
+    res.render("hospitalListView", {
+      title: "WeAreNear",
+      hospitals
+    });
+  });
+});
 app.get("/", (req, res) => {
   con.query("select * from regions order by SNo ASC", (err, regions) => {
     if (err) throw err;
@@ -60,7 +119,7 @@ app.get("/", (req, res) => {
       res.render("index", {
         title: "WeAreNear",
         regions,
-        districts
+        districts,
       });
     });
   });

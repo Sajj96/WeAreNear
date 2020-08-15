@@ -1,0 +1,140 @@
+<%- include('./layouts/header') %>
+    <div class="container content-wrapper">
+        <section class="content-header">
+            <div class="header-icon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <div class="header-title">
+                <h1>Appointment Form</h1>
+                <small></small>
+            </div>
+        </section>
+        <section class="content">
+            <div class="row">
+                <!-- Form controls -->
+                <div class="col-sm-12">
+                    <div class="panel panel-bd">
+                        <div class="panel-body appointment-body">
+                            <form id="createappointment" method="post" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
+                                        <label for="outline-form-layout-fn">First Name</label>
+                                        <input type="text" name="fname" id="outline-form-layout-fn" class="form-control">
+                                    </div>
+                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
+                                        <label for="outline-form-layout-ln">Last Name</label>
+                                        <input id="outline-form-layout-ln" name="lname" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
+                                        <label for="outline-form-layout-email">Email</label>
+                                        <input type="email" id="outline-form-layout-email" name="email" class="form-control">
+                                    </div>
+                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
+                                        <label for="outline-form-layout-phone">Phone</label>
+                                        <input type="number" id="outline-form-layout-phone" name="phone" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <fieldset class="form-group col-md-6">
+                                        <div class="row pm-radio">
+                                            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                                            <div class="col-sm-10">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="filledMale" name="gender" class="custom-control-input">
+                                                    <label class="custom-control-label pmd-radio-ripple-effect" for="filledMale">Male</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="filledFemale" name="gender" class="custom-control-input">
+                                                    <label class="custom-control-label pmd-radio-ripple-effect" for="filledFemale">Female</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-row">
+                                            <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="validationCustom03" class="is-invalid">Day of Birth</label>
+                                                <select class="form-control" name="dbirth">
+                                                    <option></option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="validationServer03">Month of Birth</label>
+                                                <select class="form-control" id="validationServer03" name="mbirth">
+                                                    <option></option>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="validationCustom05" class="is-invalid">Year of Birth</label>
+                                                <input type="text" class="form-control" name="ybirth" id="validationCustom05">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6">
+                                        <label class="control-label" for="datepicker-disabled-days">Appointment date and time:</label>
+                                        <input type="text" name="appointment_date" id="datepicker-disabled-days" class="form-control">
+                                    </div>
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6">
+                                        <label for="propeller-select">Choose hospital</label>
+                                        <select id="propeller-select" class="form-control" name="hospital">
+                                            <option></option>
+                                            <%for(var i=0; i< hosp.length; i++){ %>
+                                                <option value="<%=hosp[i].hospital_name%>"><%=hosp[i].hospital_name%></option>
+                                            <%}%>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6">
+                                        <label for="insurance">Do you have any medical insurance?</label>
+                                        <select id="insurance" class="form-control" name="insurance">
+                                            <option></option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6 insurance-provider" id="insurance-provider">
+                                        <label for="provider">Choose insurance provider</label>
+                                        <select id="provider" class="form-control" name="provider">
+                                            <option></option>
+                                            <option value="nhif">NHIF</option>
+                                            <option value="nssf">NSSF</option>
+                                            <option value="jubilee">JUBILEE</option>
+                                        </select>
+                                    </div>  
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-9">
+                                        <label>Appointment Reason</label>
+                                        <textarea class="form-control" name="reason"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="reset-button justify-content">
+                                        <button type="reset" id="bouncyFlip"  class="btn pmd-ripple-effect btn-warning">Reset</button>
+                                        <button type="submit" id="submit" name="submit" class="btn pmd-ripple-effect btn-success">Book Appointment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+<%- include('./layouts/footer') %>
+<script src="/js/appointment.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/classie.js"></script>
+<script src="/js/notificationFx.js"></script>
+<script src="/js/snap.svg-min.js"></script>
