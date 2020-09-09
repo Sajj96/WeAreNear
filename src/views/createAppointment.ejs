@@ -14,26 +14,31 @@
                 <!-- Form controls -->
                 <div class="col-sm-12">
                     <div class="panel panel-bd">
+                        <% if (typeof success != 'undefined' && success) { %>
+                            <div class="alert alert-success"><%= success %></div>
+                            <% } else if(typeof error != 'undefined' && error) { %>
+                            <div class="alert alert-danger"><%= error %></div>
+                        <% } %>
                         <div class="panel-body appointment-body">
-                            <form id="createappointment" method="post" enctype="multipart/form-data">
+                            <form action="/appointment/save" method="post" name="createappointment" id="createappointment">
                                 <div class="form-row">
-                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
-                                        <label for="outline-form-layout-fn">First Name</label>
-                                        <input type="text" name="fname" id="outline-form-layout-fn" class="form-control">
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6">
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" name="firstname" id="firstname" class="form-control">
                                     </div>
-                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
-                                        <label for="outline-form-layout-ln">Last Name</label>
-                                        <input id="outline-form-layout-ln" name="lname" class="form-control" type="text">
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6">
+                                        <label for="lastname">Last Name</label>
+                                        <input id="lastname" name="lastname" class="form-control" type="text">
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
-                                        <label for="outline-form-layout-email">Email</label>
-                                        <input type="email" id="outline-form-layout-email" name="email" class="form-control">
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-6">
+                                        <label for="email">Email</label>
+                                        <input type="email" id="email" name="email" class="form-control">
                                     </div>
                                     <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-6">
-                                        <label for="outline-form-layout-phone">Phone</label>
-                                        <input type="number" id="outline-form-layout-phone" name="phone" class="form-control">
+                                        <label for="phone">Phone</label>
+                                        <input type="number" id="phone" name="phone" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -42,11 +47,11 @@
                                             <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
                                             <div class="col-sm-10">
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="filledMale" name="gender" class="custom-control-input">
+                                                    <input type="radio" id="filledMale" value="Male" name="gender" class="custom-control-input">
                                                     <label class="custom-control-label pmd-radio-ripple-effect" for="filledMale">Male</label>
                                                 </div>
                                                 <div class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" id="filledFemale" name="gender" class="custom-control-input">
+                                                    <input type="radio" id="filledFemale" value="Female" name="gender" class="custom-control-input">
                                                     <label class="custom-control-label pmd-radio-ripple-effect" for="filledFemale">Female</label>
                                                 </div>
                                             </div>
@@ -58,18 +63,55 @@
                                                 <label for="validationCustom03" class="is-invalid">Day of Birth</label>
                                                 <select class="form-control" name="dbirth">
                                                     <option></option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
+                                                    <option value="01">1</option>
+                                                    <option value="02">2</option>
+                                                    <option value="03">3</option>
+                                                    <option value="04">4</option>
+                                                    <option value="05">5</option>
+                                                    <option value="06">6</option>
+                                                    <option value="07">7</option>
+                                                    <option value="08">8</option>
+                                                    <option value="09">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">
                                                 <label for="validationServer03">Month of Birth</label>
                                                 <select class="form-control" id="validationServer03" name="mbirth">
                                                     <option></option>
-                                                    <option value="January">January</option>
-                                                    <option value="February">February</option>
-                                                    <option value="March">March</option>
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">

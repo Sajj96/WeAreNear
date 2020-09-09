@@ -16,6 +16,11 @@
     <!-- Content Wrapper -->
     <div class="login-wrapper">           
     <div class="container-center">
+        <% if (typeof success != 'undefined' && success) { %>
+            <div class="alert alert-success"><%= success %></div>
+            <% } else if(typeof error != 'undefined' && error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>
     <div class="login-area">
         <div class="panel panel-bd panel-custom">
             <div class="panel-heading-">

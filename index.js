@@ -6,6 +6,7 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const flash = require('req-flash');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -19,13 +20,17 @@ const con = mysql.createConnection({
 
 con.connect(function (err) {
   if (err) throw err;
-  console.log(chalk.green("Database is connected"));
 });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(session({ secret: "wearenear" }));
+app.use(session({ 
+  secret: "wearenearyouson",
+  resave: true,
+  saveUninitialized: true
+ }));
+app.use(flash());
 
 app.use(express.static(path.join(__dirname, "/public/")));
 app.use(
@@ -119,7 +124,9 @@ app.get("/", (req, res) => {
       res.render("index", {
         title: "WeAreNear",
         regions,
-        districts,
+        districts,       
+        success: req.flash('success'),
+        error: req.flash('error')
       });
     });
   });
