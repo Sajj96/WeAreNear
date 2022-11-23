@@ -36,7 +36,7 @@
     "propellerkit-datetimepicker": "^1.2.0",
     "propellerkit-select2": "^1.2.0",
     "req-flash": "0.0.3",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^7.5.0"
